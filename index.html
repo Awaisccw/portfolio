@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Full-Stack Developer & Automation Architect</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Professional portfolio of a Full-Stack Developer and Automation Architect specializing in HTML, CSS, JavaScript, n8n, and AI workflows.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#fbbf24', // Gold
+                        'primary-dark': '#d97706',
+                        'bg-dark': '#020617', // Deep Obsidian
+                        'card-dark': '#0f172a',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: radial-gradient(600px 400px at 10% 10%, rgba(251,191,36,0.06), transparent 12%), radial-gradient(600px 400px at 90% 90%, rgba(217,119,6,0.03), transparent 15%), #020617;
+            color: #f8fafc;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 25px rgba(251,191,36,0.28);
+        }
+
+        .gradient-border {
+            position: relative;
+            border-radius: 1rem;
+            background: linear-gradient(90deg, #fbbf24, #d97706);
+            padding: 1px;
+        }
+
+        .gradient-border-inner {
+            background: #0f172a;
+            border-radius: 1rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-tag {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(251,191,36,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: #fbbf24;
+            background: rgba(251,191,36,0.06);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(251,191,36,0.06);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(251,191,36,0.6);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            flex-direction:column;
+            background: rgba(2,6,23,0.6);
+            transition: all 0.3s ease;
+        }
+
+        .video-container:hover .video-overlay {
+            background: rgba(2,6,23,0.45);
+        }
+
+        .play-btn {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(90deg,#fbbf24,#d97706);
+            border-radius: 50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#020617;
+            margin-bottom:1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(251,191,36,0.18);
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .video-container:hover .play-btn {
+            transform: scale(1.06);
+            box-shadow: 0 16px 40px rgba(251,191,36,0.22);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg,#fbbf24,#d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg,#fbbf24,#d97706);
+            color: #020617;
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            gap:0.5rem;
+            padding:0.9rem 2.25rem;
+            border-radius:0.75rem;
+            box-shadow: 0 12px 30px rgba(2,6,23,0.6), 0 4px 12px rgba(251,191,36,0.12);
+            text-decoration:none;
+            transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(2,6,23,0.65); }
+
+        .project-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255,255,255,0.04);
+            box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+            transition: transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s;
+        }
+        .project-card:hover { transform: translateY(-8px); box-shadow: 0 22px 50px rgba(2,6,23,0.7); }
+
+        /* small icon buttons */
+        .icon-btn {
+            width:48px;
+            height:48px;
+            border-radius:12px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background: linear-gradient(90deg,#fbbf24,#d97706);
+            color:#020617;
+            box-shadow: 0 8px 30px rgba(2,6,23,0.45);
+            transition: transform .18s, box-shadow .18s;
+        }
+        .icon-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(2,6,23,0.5); }
+
+        /* floating actions */
+        .float-actions {
+            position: fixed;
+            right: 28px;
+            bottom: 28px;
+            display:flex;
+            flex-direction:column;
+            gap:12px;
+            z-index:60;
+        }
+        .float-actions a {
+            width:56px;
+            height:56px;
+            border-radius:9999px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background: linear-gradient(90deg,#fbbf24,#d97706);
+            color:#020617;
+            box-shadow: 0 12px 40px rgba(2,6,23,0.55);
+            transition: transform .18s, box-shadow .18s, opacity .18s;
+        }
+        .float-actions a:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(2,6,23,0.6); }
+
+    </style>
+</head>
+<body class="font-sans text-slate-200">
+
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center font-bold text-bg-dark text-xl shadow-lg shadow-primary/20">P</div>
+                <span class="font-display font-bold text-xl tracking-tight hidden sm:block">PORTFOLIO</span>
+            </div>
+            
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+                <a href="#about" class="hover:text-primary transition-colors">About</a>
+                <a href="#skills" class="hover:text-primary transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button class="md:hidden text-slate-100" id="mobile-menu-toggle">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full glass py-6 px-6 flex flex-col gap-4 border-t border-white/5">
+            <a href="#about" class="text-lg font-medium">About</a>
+            <a href="#skills" class="text-lg font-medium">Skills</a>
+            <a href="#projects" class="text-lg font-medium">Projects</a>
+            <a href="#contact" class="text-lg font-medium">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Shapes -->
+        <div class="absolute top-1/4 -left-20 w-80 h-80 bg-primary/10 rounded-full blur-[100px] animate-pulse-slow"></div>
+        <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] animate-pulse-slow"></div>
+
+        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+            <div class="reveal inline-block mb-6">
+                <span class="px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-bold tracking-[0.2em] uppercase flex items-center gap-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full" style="background: rgba(251,191,36,0.75)"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2" style="background: linear-gradient(90deg,#fbbf24,#d97706)"></span>
+                    </span>
+                    Open to Opportunities
+                </span>
+            </div>
+            
+            <h1 class="reveal font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] mb-8">
+                Hi, I'm <span class="gradient-text text-glow">Awais Ahmad</span> <br>
+                <span class="text-slate-400">Full-Stack Developer</span> & <br>
+                Automation Architect.
+            </h1>
+            
+            <p class="reveal text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Specializing in HTML, CSS, JavaScript, Backend Technologies, n8n Automations, and AI tools to build scalable web apps and custom CRM systems.
+            </p>
+
+            <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#projects" class="w-full sm:w-auto btn-primary font-bold rounded-xl hover:scale-105 transition-all duration-300">
+                    View My Projects
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-slate-800/50 text-white font-bold rounded-xl border border-white/10 hover:bg-slate-800 transition-all">
+                    Contact Me
+                </a>
+                <div class="flex items-center gap-3">
+                    <a href="https://wa.me/923424153171" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="WhatsApp">
+                        <img src="https://cdn.simpleicons.org/whatsapp/020617" alt="WhatsApp" class="w-5 h-5" />
+                    </a>
+                    <a href="mailto:awaiccw111@gmail.com" class="icon-btn" aria-label="Email">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scroll Down Indicator (moved below CTAs to avoid overlap) -->
+            <div class="mt-8 flex justify-center animate-bounce opacity-70 pointer-events-none">
+                <i data-lucide="chevron-down" class="w-6 h-6 text-slate-400"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Technical Arsenal -->
+    <section id="about" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                
+                <!-- About Text -->
+                <div class="reveal">
+                    <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-4">About Me</h2>
+                    <h3 class="font-display text-4xl font-bold mb-8">Bridging the Gap Between <br><span class="text-slate-400">Design & Automation</span></h3>
+                    <div class="space-y-6 text-slate-400 text-lg leading-relaxed">
+                        <p class="p-8 rounded-2xl glass border-l-4 border-primary italic bg-slate-900/50">
+                            I design and build scalable web applications and automation systems that solve real business problems. I specialize in React, Node.js, n8n automations, and AI-driven workflows. I deliver production-ready solutions focused on reliability, performance, and measurable outcomes that hiring teams can trust.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div id="skills" class="reveal lg:pt-12">
+                    <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-6">Technical Arsenal</h2>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="skill-tag px-5 py-2.5 rounded-lg text-sm font-semibold">HTML5 / CSS3</div>
+                        <div class="skill-tag px-5 py-2.5 rounded-lg text-sm font-semibold">JavaScript (ES6+)</div>
+                        <div class="skill-tag px-5 py-2.5 rounded-lg text-sm font-semibold">React.js (Dynamic Fetching)</div>
+                        <div class="skill-tag px-5 py-2.5 rounded-lg text-sm font-semibold">Node.js</div>
+                        <div class="skill-tag px-5 py-2.5 rounded-lg text-sm font-semibold">n8n Automation</div>
+                        <div class="skill-tag px-5 py-2.5 rounded-lg text-sm font-semibold">DigitalOcean (VPS)</div>
+                        <div class="skill-tag px-5 py-2.5 rounded-lg text-sm font-semibold">REST APIs</div>
+                        <div class="skill-tag px-5 py-2.5 rounded-lg text-sm font-semibold">Database Management</div>
+                        <div class="skill-tag px-5 py-2.5 rounded-lg text-sm font-semibold">AI Workflows</div>
+                        <div class="skill-tag px-5 py-2.5 rounded-lg text-sm font-semibold">CRM Automations</div>
+                    </div>
+
+                    <!-- Visual Tech Grid Decor -->
+                    <div class="mt-12 grid grid-cols-4 gap-4 opacity-20">
+                        <div class="aspect-square bg-primary/20 rounded-xl"></div>
+                        <div class="aspect-square bg-slate-700/20 rounded-xl"></div>
+                        <div class="aspect-square bg-slate-700/20 rounded-xl"></div>
+                        <div class="aspect-square bg-primary/20 rounded-xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section id="projects" class="py-24 bg-slate-900/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-4">Case Studies</h2>
+                <h3 class="font-display text-4xl md:text-5xl font-bold">Featured Projects</h3>
+            </div>
+
+            <div class="space-y-32">
+                <!-- Project 1: Dynamic React Admin Panel -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center reveal project-card p-6 lg:p-8 rounded-2xl">
+                    <div class="video-container group">
+                        <div class="video-overlay">
+                            <div class="play-btn">
+                                <i data-lucide="play" fill="currentColor"></i>
+                            </div>
+                            <span class="font-bold text-sm tracking-widest uppercase text-white/90 text-center px-4">[Insert Video/Images of React Admin Panel]</span>
+                        </div>
+                        <!-- Background Pattern -->
+                        <div class="absolute inset-0 -z-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-2 text-primary">
+                            <i data-lucide="layout" class="w-5 h-5"></i>
+                            <span class="font-bold uppercase text-xs tracking-widest text-primary/70">Full-Stack Development</span>
+                        </div>
+                        <h4 class="font-display text-3xl font-bold">Dynamic React Admin Panel <br><span class="text-primary/80 text-xl font-medium">(Real-Time CRM Interface)</span></h4>
+                        <p class="text-slate-400 text-lg leading-relaxed">
+                            A fully responsive and dynamic Admin Panel built in React.js. Moving beyond just static UI design, this application is fully functional, seamlessly fetching, rendering, and managing real-time data from a backend via APIs. This project demonstrates my deep understanding of modern state management, API integration, and my ability to build complex, data-driven interfaces perfectly suited for custom CRMs and internal dashboards.
+                        </p>
+                        <div class="flex gap-4 pt-4">
+                            <span class="text-xs font-bold text-slate-500 border border-slate-700 px-3 py-1 rounded">REACT</span>
+                            <span class="text-xs font-bold text-slate-500 border border-slate-700 px-3 py-1 rounded">API</span>
+                            <span class="text-xs font-bold text-slate-500 border border-slate-700 px-3 py-1 rounded">TAILWIND</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Custom WhatsApp Server -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center reveal project-card p-6 lg:p-8 rounded-2xl">
+                    <div class="order-2 lg:order-1 space-y-6">
+                        <div class="flex items-center gap-2 text-primary">
+                            <i data-lucide="zap" class="w-5 h-5"></i>
+                            <span class="font-bold uppercase text-xs tracking-widest text-primary/70">Automation Architect</span>
+                        </div>
+                        <h4 class="font-display text-3xl font-bold">Custom WhatsApp Server & <br><span class="text-primary/80 text-xl font-medium">n8n Database Bot</span></h4>
+                        <p class="text-slate-400 text-lg leading-relaxed">
+                            Developed a custom WhatsApp server in JavaScript, hosted independently on DigitalOcean to bypass Meta's API restrictions (currently connected via terminal). I integrated this server with a complex n8n automation flow that acts as a CRM bridge. 
+                            <br><br>
+                            <strong>Trigger:</strong> Receives incoming WhatsApp messages. <br>
+                            <strong>Logic:</strong> Authenticates the user's number and queries a connected university database. <br>
+                            <strong>Action:</strong> Retrieves requested user data, formats it cleanly, and triggers the custom JS server to instantly send a formatted reply back to the user.
+                        </p>
+                        
+                        <!-- Roadmap Callout -->
+                        <div class="p-6 bg-primary/5 border border-primary/20 rounded-2xl">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i data-lucide="rocket" class="text-primary w-5 h-5"></i>
+                                <h5 class="font-bold text-sm text-primary uppercase tracking-widest">Future Roadmap</h5>
+                            </div>
+                            <p class="text-slate-300 text-sm">
+                                <strong>Vision:</strong> I am currently architecting the next B2B iteration of this project—a SaaS admin panel where companies can scan a QR code to securely connect their own numbers as automated agents.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 video-container group">
+                        <div class="video-overlay">
+                            <div class="play-btn">
+                                <i data-lucide="play" fill="currentColor"></i>
+                            </div>
+                            <span class="font-bold text-sm tracking-widest uppercase text-white/90 text-center px-6">[Insert Video of n8n Bot Working & Workflow Logic]</span>
+                        </div>
+                        <div class="absolute inset-0 -z-10 bg-[url('https://www.transparenttextures.com/patterns/circuit-board.png')] opacity-10"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16">
+                
+                <div class="reveal">
+                    <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-4">Contact</h2>
+                    <h3 class="font-display text-4xl md:text-5xl font-bold mb-8">Let's Build Something <br><span class="text-slate-400">Exceptional.</span></h3>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-center gap-6 group">
+                            <div class="w-14 h-14 rounded-2xl bg-slate-800/50 flex items-center justify-center text-primary border border-white/5 group-hover:border-primary transition-colors">
+                                <i data-lucide="mail"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-500 text-sm font-bold uppercase tracking-widest mb-1">Email Me</p>
+                                <a href="mailto:awaiccw111@gmail.com" class="text-xl font-semibold hover:text-primary transition-colors">awaiccw111@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-6 group">
+                            <div class="w-14 h-14 rounded-2xl bg-slate-800/50 flex items-center justify-center text-primary border border-white/5 group-hover:border-primary transition-colors">
+                                <img src="https://cdn.simpleicons.org/whatsapp/ffffff" alt="WhatsApp" class="w-6 h-6" />
+                            </div>
+                            <div>
+                                <p class="text-slate-500 text-sm font-bold uppercase tracking-widest mb-1">WhatsApp</p>
+                                <a href="https://wa.me/923424153171" target="_blank" rel="noopener noreferrer" class="text-xl font-semibold hover:text-primary transition-colors">+92 342 415 3171</a>
+                            </div>
+                        </div>
+
+                        <!-- LinkedIn and GitHub contact rows removed -->
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <form class="glass p-8 rounded-3xl border border-white/10 space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold uppercase tracking-widest text-slate-500 ml-1">Name</label>
+                                <input type="text" placeholder="John Doe" class="w-full bg-bg-dark border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold uppercase tracking-widest text-slate-500 ml-1">Email</label>
+                                <input type="email" placeholder="john@example.com" class="w-full bg-bg-dark border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold uppercase tracking-widest text-slate-500 ml-1">Message</label>
+                            <textarea rows="4" placeholder="How can I help you?" class="w-full bg-bg-dark border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-primary text-bg-dark font-bold rounded-xl hover:bg-white hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-primary/20">
+                            Send Message
+                        </button>
+                        <!-- webhook note removed -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 text-center">
+        <p class="text-slate-500 text-sm tracking-widest uppercase">
+            © 2026 Built with Code & Automation by Awais Ahmad
+        </p>
+    </footer>
+
+    <!-- Floating Contact Actions -->
+    <div class="float-actions" aria-hidden="false">
+        <a href="https://wa.me/923424153171" target="_blank" rel="noopener noreferrer" title="Message on WhatsApp">
+            <img src="https://cdn.simpleicons.org/whatsapp/020617" alt="WhatsApp" class="w-6 h-6" />
+        </a>
+        <a href="mailto:awaiccw111@gmail.com" title="Send email">
+            <i data-lucide="mail" class="w-6 h-6"></i>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Reveal Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass', 'py-3');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.remove('glass', 'py-3');
+                navbar.classList.add('py-4');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
