@@ -655,7 +655,7 @@
                 <div class="absolute bottom-20 left-10 w-32 h-32 border border-primary/10 rounded-full opacity-50"></div>
 
                 <!-- Avatar Card - Main Focus -->
-                <div class="relative w-[360px] h-[480px] rounded-3xl glass border border-primary/30 overflow-visible shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] hover:shadow-[0_0_60px_rgba(251,191,36,0.2)] transition-all duration-700 animate-float group">
+                <div class="relative w-[480px] h-[540px] rounded-3xl glass border border-primary/30 overflow-visible shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] hover:shadow-[0_0_60px_rgba(251,191,36,0.2)] transition-all duration-700 animate-float group">
                     
                     <!-- Gradient Background behind image -->
                     <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-blue-500/10"></div>
@@ -666,39 +666,46 @@
                         <!-- Profile Image Placeholder (with icon) -->
                         <div class="relative mb-8">
                             <!-- Decorative Blue Box (Top Right) -->
-                            <div class="absolute top-0 right-0 w-20 h-20 border-4 border-blue-500 rounded-xl transform translate-x-6 -translate-y-6 z-20"></div>
+                            <div class="absolute top-0 right-0 w-28 h-28 border-4 border-blue-500 rounded-xl transform translate-x-6 -translate-y-6 z-20"></div>
                             
                             <!-- Decorative Pink Box (Bottom Left) -->
-                            <div class="absolute bottom-0 left-0 w-16 h-16 border-4 border-pink-500 rounded-lg transform -translate-x-4 translate-y-6 z-20"></div>
+                            <div class="absolute bottom-0 left-0 w-24 h-24 border-4 border-pink-500 rounded-lg transform -translate-x-4 translate-y-6 z-20"></div>
                             
                             <!-- Decorative Yellow Box (Top Left) -->
-                            <div class="absolute top-2 left-0 w-12 h-12 border-4 border-yellow-400 rounded-lg transform -translate-x-6 -translate-y-3 z-10"></div>
+                            <div class="absolute top-2 left-0 w-16 h-16 border-4 border-yellow-400 rounded-lg transform -translate-x-6 -translate-y-3 z-10"></div>
                             
                             <!-- Decorative Cyan Box (Bottom Right) -->
-                            <div class="absolute bottom-2 right-0 w-14 h-14 border-4 border-cyan-400 rounded-lg transform translate-x-6 translate-y-4 z-10"></div>
+                            <div class="absolute bottom-2 right-0 w-20 h-20 border-4 border-cyan-400 rounded-lg transform translate-x-6 translate-y-4 z-10"></div>
                             
                             <!-- Main Avatar Image -->
-                            <div class="w-40 h-40 rounded-2xl bg-gradient-to-br from-primary/30 to-blue-500/30 flex items-center justify-center border-2 border-primary/40 shadow-[0_0_40px_rgba(251,191,36,0.2)] group-hover:shadow-[0_0_60px_rgba(251,191,36,0.4)] transition-all duration-500 relative z-30">
-                                <!-- Placeholder for avatar image -->
-                                <i data-lucide="user" class="w-24 h-24 text-primary/60"></i>
+                            <div class="w-56 h-56 rounded-2xl bg-gradient-to-br from-primary/30 to-blue-500/30 flex items-center justify-center border-2 border-primary/40 shadow-[0_0_40px_rgba(251,191,36,0.2)] group-hover:shadow-[0_0_60px_rgba(251,191,36,0.4)] transition-all duration-500 relative z-30 overflow-hidden">
+                                <!-- Avatar Image from Facebook -->
+                                <img src="https://scontent.fkhi6-1.fna.fbcdn.net/v/t39.30808-6/545911423_2035551950547975_6056635405302329261_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHtphfYSgQyt3WCe-zo1B-B29_qibp5JkLb3-qJunkmQvs7ypTSCpEXgCiTo744cZemM5eYNSnoVrrcJ7pebkEB&_nc_ohc=Hj2B2wgKkLIQ7kNvwHMIIkK&_nc_oc=AdqCIfhtqS60HsPXRkZA2-vRLnNZaQTDqXUggpRBQGim0qoJP2ijkWenUVl_A9glKrU4JDkBfC6DqHNaFDTfiRyu&_nc_zt=23&_nc_ht=scontent.fkhi6-1.fna&_nc_gid=_cubIwNpp8LnylbwoqTbgw&_nc_ss=7b2a8&oh=00_Af-f9cuCaGQyuq9F3pcGtCF6wrjuMIm8RxF30_ttGoOtyg&oe=6A25CC55" alt="Awais Ahmad" class="w-full h-full object-cover">
                             </div>
                             <!-- Decorative ring around avatar -->
                             <div class="absolute -inset-2 rounded-3xl border border-primary/10 group-hover:border-primary/30 transition-all duration-500"></div>
                         </div>
 
                         <!-- Name & Title -->
-                        <div class="text-center mb-6 relative z-10">
-                            <h3 class="text-3xl font-bold text-white mb-2 tracking-wide">Awais Ahmad</h3>
-                            <p class="text-primary font-semibold text-lg">Full-Stack Developer</p>
-                            <p class="text-slate-400 text-sm mt-1">& Automation Architect</p>
+                        <div class="text-center mb-4 relative z-10">
+                            <h3 class="text-4xl font-bold text-white mb-2 tracking-wide">Awais Ahmad</h3>
+                            <p class="text-primary font-semibold text-xl">Full-Stack Developer</p>
+                            <p class="text-slate-400 text-base mt-1">& Automation Architect</p>
+                            
+                            <!-- Open to Opportunities Badge -->
+                            <div class="mt-3 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full backdrop-blur-md inline-block">
+                                <p class="text-xs font-bold tracking-widest text-primary uppercase flex items-center gap-2 whitespace-nowrap">
+                                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Open to Opportunities
+                                </p>
+                            </div>
                         </div>
 
                         <!-- Divider -->
-                        <div class="w-12 h-1 bg-gradient-to-r from-primary to-blue-500 rounded-full mb-6"></div>
+                        <div class="w-16 h-1 bg-gradient-to-r from-primary to-blue-500 rounded-full mb-6"></div>
 
                         <!-- Quick Info -->
                         <div class="text-center space-y-3 mb-6 relative z-10">
-                            <p class="text-slate-300 text-sm leading-relaxed max-w-xs">
+                            <p class="text-slate-300 text-base leading-relaxed max-w-sm">
                                 Crafting premium web experiences and intelligent automation systems
                             </p>
                         </div>
@@ -714,12 +721,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-primary/0 via-transparent to-primary/0 opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none"></div>
                 </div>
 
-                <!-- Floating Badge -->
-                <div class="absolute top-20 right-10 px-6 py-3 bg-primary/10 border border-primary/30 rounded-full backdrop-blur-md shadow-lg animate-float z-30" style="animation-delay: 2s;">
-                    <p class="text-xs font-bold tracking-widest text-primary uppercase flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Open to Opportunities
-                    </p>
-                </div>
+
             </div>
             
         </div>
