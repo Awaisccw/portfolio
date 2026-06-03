@@ -655,7 +655,7 @@
                 <div class="absolute bottom-20 left-10 w-32 h-32 border border-primary/10 rounded-full opacity-50"></div>
 
                 <!-- Avatar Card - Main Focus -->
-                <div class="relative w-[360px] h-[480px] rounded-3xl glass border border-primary/30 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] hover:shadow-[0_0_60px_rgba(251,191,36,0.2)] transition-all duration-700 animate-float group">
+                <div class="relative w-[360px] h-[480px] rounded-3xl glass border border-primary/30 overflow-visible shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] hover:shadow-[0_0_60px_rgba(251,191,36,0.2)] transition-all duration-700 animate-float group">
                     
                     <!-- Gradient Background behind image -->
                     <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-blue-500/10"></div>
@@ -665,7 +665,20 @@
                         
                         <!-- Profile Image Placeholder (with icon) -->
                         <div class="relative mb-8">
-                            <div class="w-40 h-40 rounded-2xl bg-gradient-to-br from-primary/30 to-blue-500/30 flex items-center justify-center border-2 border-primary/40 shadow-[0_0_40px_rgba(251,191,36,0.2)] group-hover:shadow-[0_0_60px_rgba(251,191,36,0.4)] transition-all duration-500">
+                            <!-- Decorative Blue Box (Top Right) -->
+                            <div class="absolute top-0 right-0 w-20 h-20 border-4 border-blue-500 rounded-xl transform translate-x-6 -translate-y-6 z-20"></div>
+                            
+                            <!-- Decorative Pink Box (Bottom Left) -->
+                            <div class="absolute bottom-0 left-0 w-16 h-16 border-4 border-pink-500 rounded-lg transform -translate-x-4 translate-y-6 z-20"></div>
+                            
+                            <!-- Decorative Yellow Box (Top Left) -->
+                            <div class="absolute top-2 left-0 w-12 h-12 border-4 border-yellow-400 rounded-lg transform -translate-x-6 -translate-y-3 z-10"></div>
+                            
+                            <!-- Decorative Cyan Box (Bottom Right) -->
+                            <div class="absolute bottom-2 right-0 w-14 h-14 border-4 border-cyan-400 rounded-lg transform translate-x-6 translate-y-4 z-10"></div>
+                            
+                            <!-- Main Avatar Image -->
+                            <div class="w-40 h-40 rounded-2xl bg-gradient-to-br from-primary/30 to-blue-500/30 flex items-center justify-center border-2 border-primary/40 shadow-[0_0_40px_rgba(251,191,36,0.2)] group-hover:shadow-[0_0_60px_rgba(251,191,36,0.4)] transition-all duration-500 relative z-30">
                                 <!-- Placeholder for avatar image -->
                                 <i data-lucide="user" class="w-24 h-24 text-primary/60"></i>
                             </div>
